@@ -1,0 +1,26 @@
+git 
+
+
+
+
+git fetch origin
+git reset --hard origin/mains
+
+
+
+git rm --cached backend/.env
+
+
+
+git reset --hard HEAD~1
+git push origin main --force
+
+
+git switch -c master origin/master
+
+
+git push origin --delete branch_name
+
+
+
+git pull --rebase origin develop
