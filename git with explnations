@@ -1,0 +1,111 @@
+Sync Local Repo with Remote
+➤ Reset local branch to match remote exactly
+git fetch origin
+git reset --hard origin/main
+
+What it does:
+
+fetch → gets latest changes
+reset --hard → wipes your local changes and matches remote
+
+Use when: your local repo is messed up and you want a clean state.
+
+Examples:
+
+You broke your code → just reset to remote
+Merge conflicts everywhere → nuke local and sync fresh
+🧹 2. Remove File from Git Tracking (but keep locally)
+➤ Remove .env from Git
+git rm --cached backend/.env
+
+What it does:
+Stops tracking the file but doesn’t delete it from your system.
+
+Important: Add to .gitignore after this.
+
+Examples:
+
+You accidentally committed secrets
+You want .env to stay local only
+⏪ 3. Undo Commits
+➤ Remove last commit completely
+git reset --hard HEAD~1
+
+What it does:
+Deletes last commit + changes (permanently).
+
+Examples:
+
+You committed broken code
+You committed sensitive data
+➤ Push rewritten history (DANGEROUS)
+git push origin main --force
+
+What it does:
+Overwrites remote history with your local version.
+
+Reality check:
+If others are working on the branch, this can wreck their work.
+
+Examples:
+
+You removed secrets and need to overwrite history
+You cleaned up commits locally
+🌿 4. Branch Management
+➤ Create and switch to a branch from remote
+git switch -c master origin/master
+
+What it does:
+Creates local master tracking origin/master.
+
+Examples:
+
+You cloned repo and need to work on master
+You want to track a remote branch locally
+➤ Delete remote branch
+git push origin --delete branch_name
+
+What it does:
+Deletes branch from remote repo.
+
+Examples:
+
+Feature branch is merged
+Cleanup old branches
+🔄 5. Pull with Rebase
+➤ Rebase local changes on top of remote
+git pull --rebase origin develop
+
+What it does:
+
+Pulls latest develop
+Re-applies your commits on top (clean history)
+
+Why it matters:
+Avoids messy merge commits.
+
+Examples:
+
+You want a linear commit history
+You’re working on feature branch and syncing with develop
+⚠️ Brutal Reality (Don’t Ignore This)
+
+You’re using destructive commands heavily:
+
+reset --hard
+push --force
+
+These are not beginner-safe.
+
+Two common ways people screw this up:
+Deleting work permanently
+Example: reset --hard → no recovery unless in reflog
+Breaking team workflow
+Example: push --force → others' commits disappear
+🧠 Minimal Mental Model (Memorize This)
+fetch → download
+pull → download + merge/rebase
+reset --hard → destroy local changes
+push --force → overwrite remote
+rm --cached → stop tracking file
+switch -c → create new branch
