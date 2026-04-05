@@ -1,111 +1,164 @@
-Sync Local Repo with Remote
-➤ Reset local branch to match remote exactly
+🧹 1. Sync Local Repo with Remote
+Reset local branch to match remote exactly
+
+bash
 git fetch origin
 git reset --hard origin/main
-
-What it does:
-
 fetch → gets latest changes
+
 reset --hard → wipes your local changes and matches remote
 
-Use when: your local repo is messed up and you want a clean state.
+Use when: local repo is messed up, want clean state
 
 Examples:
 
 You broke your code → just reset to remote
+
 Merge conflicts everywhere → nuke local and sync fresh
-🧹 2. Remove File from Git Tracking (but keep locally)
-➤ Remove .env from Git
+
+❌ 2. Remove File from Git Tracking (Keep Locally)
+Remove .env from Git
+
+bash
 git rm --cached backend/.env
+Stops tracking the file but doesn't delete it from your system
 
-What it does:
-Stops tracking the file but doesn’t delete it from your system.
-
-Important: Add to .gitignore after this.
+Important: Add to .gitignore after this
 
 Examples:
 
-You accidentally committed secrets
-You want .env to stay local only
+Accidentally committed secrets
+
+Want .env to stay local only
+
 ⏪ 3. Undo Commits
-➤ Remove last commit completely
+Remove last commit completely
+
+bash
 git reset --hard HEAD~1
+Deletes last commit + changes (permanently)
 
-What it does:
-Deletes last commit + changes (permanently).
+Push rewritten history (DANGEROUS)
 
-Examples:
-
-You committed broken code
-You committed sensitive data
-➤ Push rewritten history (DANGEROUS)
+bash
 git push origin main --force
+Overwrites remote history with your local version
 
-What it does:
-Overwrites remote history with your local version.
+Reality check: If others work on branch, this wrecks their work
 
-Reality check:
-If others are working on the branch, this can wreck their work.
-
-Examples:
-
-You removed secrets and need to overwrite history
-You cleaned up commits locally
 🌿 4. Branch Management
-➤ Create and switch to a branch from remote
+Create and switch to branch from remote
+
+bash
 git switch -c master origin/master
+Delete remote branch
 
-What it does:
-Creates local master tracking origin/master.
-
-Examples:
-
-You cloned repo and need to work on master
-You want to track a remote branch locally
-➤ Delete remote branch
+bash
 git push origin --delete branch_name
-
-What it does:
-Deletes branch from remote repo.
-
-Examples:
-
-Feature branch is merged
-Cleanup old branches
 🔄 5. Pull with Rebase
-➤ Rebase local changes on top of remote
+Rebase local changes on top of remote
+
+bash
 git pull --rebase origin develop
+Pulls latest develop, re-applies your commits on top (clean history)
 
-What it does:
+🚀 6. Stash Changes (Save Work Temporarily)
+Save uncommitted changes
 
-Pulls latest develop
-Re-applies your commits on top (clean history)
+bash
+git stash push -m "WIP: fixing login"
+Apply latest stash
 
-Why it matters:
-Avoids messy merge commits.
+bash
+git stash pop
+List stashes
 
-Examples:
+bash
+git stash list
+Use when: Need to switch branches but have uncommitted work
 
-You want a linear commit history
-You’re working on feature branch and syncing with develop
-⚠️ Brutal Reality (Don’t Ignore This)
+📝 7. Amend Last Commit
+Fix commit message
 
-You’re using destructive commands heavily:
+bash
+git commit --amend -m "Better message"
+Add forgotten files to last commit
 
-reset --hard
-push --force
+bash
+git add forgotten-file.js
+git commit --amend --no-edit
+Use when: Typo in message or forgot a file
 
-These are not beginner-safe.
+🔍 8. View Commit History
+Pretty log with graph
 
-Two common ways people screw this up:
-Deleting work permanently
-Example: reset --hard → no recovery unless in reflog
-Breaking team workflow
-Example: push --force → others' commits disappear
-🧠 Minimal Mental Model (Memorize This)
-fetch → download
-pull → download + merge/rebase
-reset --hard → destroy local changes
-push --force → overwrite remote
-rm --cached → stop tracking file
-switch -c → create new branch
+bash
+git log --oneline --graph --all
+Last 5 commits
+
+bash
+git log --oneline -5
+Changes in last commit
+
+bash
+git show HEAD
+🗑️ 9. Clean Working Directory
+Remove untracked files
+
+bash
+git clean -fd
+-f force, -d directories
+
+Remove untracked + ignored files
+
+bash
+git clean -fdx
+Dry run first:
+
+bash
+git clean -n
+🔗 10. Remote Management
+Add new remote
+
+bash
+git remote add upstream https://github.com/other/repo.git
+Change remote URL
+
+bash
+git remote set-url origin https://github.com/new-owner/repo.git
+View remotes
+
+bash
+git remote -v
+⚡ 11. Cherry-pick Specific Commit
+Apply one commit from another branch
+
+bash
+git cherry-pick abc1234
+Use when: Need one specific fix from main branch
+
+🔄 12. Interactive Rebase (Rewrite History)
+Edit last 3 commits
+
+bash
+git rebase -i HEAD~3
+Squash, reorder, edit, delete commits
+
+DANGEROUS if already pushed
+
+📊 Status Check Commands
+bash
+git status                    # Current state
+git diff                      # Uncommitted changes
+git diff --cached             # Staged changes
+git log --oneline --graph     # Visual history
+git branch -vv                # All branches + tracking
+⚠️ Brutal Reality (Don't Ignore)
+Destructive commands you're now wielding:
+
+reset --hard → permanent local destruction
+
+push --force → overwrites remote history
+
+rebase -i → rewrites commit history
+
