@@ -162,3 +162,18 @@ push --force → overwrites remote history
 
 rebase -i → rewrites commit history
 
+clean -fdx → deletes untracked files forever
+
+Recovery lifeline: git reflog (shows all actions)
+
+🧠 Minimal Mental Model (Memorize)
+text
+fetch → download metadata
+pull → download + merge/rebase  
+reset --hard → destroy local
+push --force → overwrite remote
+rm --cached → stop tracking  
+stash → save work temporarily
+amend → fix last commit
+clean -fd → delete untracked
+reflog → recovery lifeline
