@@ -1,179 +1,194 @@
-🧹 1. Sync Local Repo with Remote
-Reset local branch to match remote exactly
+13. Restore Files (Stop Screwing Around with Reset)
+Bring back a file without nuking everything
+git restore file.js
+git restore --staged file.js
+restore → replaces file with last committed version
+--staged → removes from staging (undo git add)
 
-bash
-git fetch origin
-git reset --hard origin/main
-fetch → gets latest changes
-
-reset --hard → wipes your local changes and matches remote
-
-Use when: local repo is messed up, want clean state
+Use when: you messed up ONE file, not the whole repo
 
 Examples:
 
-You broke your code → just reset to remote
+You edited config incorrectly → restore just that file
+You accidentally staged secrets → unstage without losing changes
+⏮️ 14. Checkout Old State (Time Travel Without Damage)
+git checkout <commit_hash>
+Moves you to a past commit (detached HEAD)
 
-Merge conflicts everywhere → nuke local and sync fresh
-
-❌ 2. Remove File from Git Tracking (Keep Locally)
-Remove .env from Git
-
-bash
-git rm --cached backend/.env
-Stops tracking the file but doesn't delete it from your system
-
-Important: Add to .gitignore after this
+Reality: You’re NOT on a branch here. Changes can disappear if you don’t branch.
 
 Examples:
 
-Accidentally committed secrets
+Debug a bug introduced 3 commits ago
+Compare old vs new logic manually
 
-Want .env to stay local only
+👉 If you want to keep changes:
 
-⏪ 3. Undo Commits
-Remove last commit completely
+git switch -c fix-old-bug
+🔀 15. Merge vs Rebase (Stop Confusing These)
+Merge
+git merge feature
+Keeps history messy but safe
+Rebase
+git rebase main
+Rewrites history, cleaner
 
-bash
-git reset --hard HEAD~1
-Deletes last commit + changes (permanently)
+Brutal truth:
 
-Push rewritten history (DANGEROUS)
+Merge = safe for teams
+Rebase = safe only locally
 
-bash
-git push origin main --force
-Overwrites remote history with your local version
+Examples:
 
-Reality check: If others work on branch, this wrecks their work
+Team project → use merge
+Solo feature cleanup → use rebase
+🧠 16. Fix Merge Conflicts (The Right Way)
 
-🌿 4. Branch Management
-Create and switch to branch from remote
+When conflict happens:
 
-bash
-git switch -c master origin/master
-Delete remote branch
+git status
 
-bash
-git push origin --delete branch_name
-🔄 5. Pull with Rebase
-Rebase local changes on top of remote
+Then:
 
-bash
-git pull --rebase origin develop
-Pulls latest develop, re-applies your commits on top (clean history)
+# edit files manually
+git add .
+git commit
 
-🚀 6. Stash Changes (Save Work Temporarily)
-Save uncommitted changes
+If rebasing:
 
-bash
-git stash push -m "WIP: fixing login"
-Apply latest stash
+git rebase --continue
 
-bash
-git stash pop
-List stashes
+Abort if needed:
 
-bash
-git stash list
-Use when: Need to switch branches but have uncommitted work
+git merge --abort
+git rebase --abort
 
-📝 7. Amend Last Commit
-Fix commit message
+Examples:
 
-bash
-git commit --amend -m "Better message"
-Add forgotten files to last commit
+Same function edited in 2 branches
+Config file changed differently
+📦 17. Tagging (Version Control Like a Pro)
+git tag v1.0
+git push origin v1.0
+Marks a release point
 
-bash
-git add forgotten-file.js
-git commit --amend --no-edit
-Use when: Typo in message or forgot a file
+Examples:
 
-🔍 8. View Commit History
-Pretty log with graph
+Before deploying production build
+Mark stable version before risky changes
+🧪 18. Bisect (Find Bugs Like a Machine)
+git bisect start
+git bisect bad
+git bisect good <commit>
 
-bash
-git log --oneline --graph --all
-Last 5 commits
+Git will binary search the bad commit.
 
-bash
-git log --oneline -5
-Changes in last commit
+Examples:
 
-bash
-git show HEAD
-🗑️ 9. Clean Working Directory
-Remove untracked files
+Bug appeared but you don’t know where
+Performance dropped suddenly
 
-bash
-git clean -fd
--f force, -d directories
+👉 This saves HOURS of manual checking.
 
-Remove untracked + ignored files
+🧷 19. Revert (Safe Undo for Shared Branches)
+git revert HEAD
+Creates new commit that undoes changes
+DOES NOT rewrite history
 
-bash
-git clean -fdx
-Dry run first:
+Brutal rule:
 
-bash
-git clean -n
-🔗 10. Remote Management
-Add new remote
+Use revert instead of reset on shared branches
 
-bash
-git remote add upstream https://github.com/other/repo.git
-Change remote URL
+Examples:
 
-bash
-git remote set-url origin https://github.com/new-owner/repo.git
-View remotes
+You broke production → revert safely
+Wrong logic pushed → undo without force push
+🔍 20. Blame (Who Wrote This Garbage?)
+git blame file.js
+Shows who changed each line
 
-bash
-git remote -v
-⚡ 11. Cherry-pick Specific Commit
-Apply one commit from another branch
+Examples:
 
-bash
-git cherry-pick abc1234
-Use when: Need one specific fix from main branch
-
-🔄 12. Interactive Rebase (Rewrite History)
-Edit last 3 commits
-
-bash
+Track who introduced bug
+Understand why weird logic exists
+🧱 21. Squash Commits (Clean Your Mess)
 git rebase -i HEAD~3
-Squash, reorder, edit, delete commits
 
-DANGEROUS if already pushed
+Then change:
 
-📊 Status Check Commands
-bash
-git status                    # Current state
-git diff                      # Uncommitted changes
-git diff --cached             # Staged changes
-git log --oneline --graph     # Visual history
-git branch -vv                # All branches + tracking
-⚠️ Brutal Reality (Don't Ignore)
-Destructive commands you're now wielding:
+pick → squash
 
-reset --hard → permanent local destruction
+Use when: your history looks like garbage
 
-push --force → overwrites remote history
+Examples:
 
-rebase -i → rewrites commit history
+“fix typo”, “fix again”, “final fix” → squash
+Clean PR before pushing
+🧳 22. Worktrees (Underrated Weapon)
+git worktree add ../feature-branch feature
+Work on multiple branches simultaneously in different folders
 
-clean -fdx → deletes untracked files forever
+Examples:
 
-Recovery lifeline: git reflog (shows all actions)
+Hotfix + feature development at same time
+Compare two branches side-by-side
+📡 23. Fetch Specific Branch (Not Everything)
+git fetch origin feature-branch
 
-🧠 Minimal Mental Model (Memorize)
-text
-fetch → download metadata
-pull → download + merge/rebase  
-reset --hard → destroy local
-push --force → overwrite remote
-rm --cached → stop tracking  
-stash → save work temporarily
-amend → fix last commit
-clean -fd → delete untracked
-reflog → recovery lifeline
+Examples:
+
+You only care about one branch
+Avoid pulling entire repo updates
+🪓 24. Delete Local Branch (Clean Up Junk)
+git branch -d branch_name
+git branch -D branch_name
+-d safe delete
+-D force delete
+
+Examples:
+
+Feature merged → delete branch
+Dead experiment → remove it
+🧨 25. Reset Soft vs Mixed vs Hard (You Only Know 1/3)
+git reset --soft HEAD~1
+git reset --mixed HEAD~1
+git reset --hard HEAD~1
+Differences:
+soft → keep changes staged
+mixed → keep changes unstaged
+hard → delete everything
+
+Examples:
+
+Fix commit message → soft
+Rework code → mixed
+Kill everything → hard
+🧯 26. Reflog (Your Last Lifeline)
+git reflog
+
+Then:
+
+git reset --hard <hash>
+
+This saves you when you mess up badly.
+
+Examples:
+
+You ran reset --hard accidentally
+You lost a branch
+🧠 REAL Mental Model (Upgrade Yours)
+
+Right now yours is too basic. Use this instead:
+
+Working Dir → Staging → Commit → Remote
+
+restore → fix working dir  
+add → move to staging  
+commit → snapshot  
+push → send to remote  
+
+reset → move pointer (danger)
+revert → undo safely  
+rebase → rewrite history  
+merge → combine history  
+reflog 
