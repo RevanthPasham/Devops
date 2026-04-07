@@ -74,13 +74,7 @@ Marks a release point
 
 Examples:
 
-Before deploying production build
-Mark stable version before risky changes
-🧪 18. Bisect (Find Bugs Like a Machine)
-git bisect start
-git bisect bad
-git bisect good <commit>
-
+=
 Git will binary search the bad commit.
 
 Examples:
