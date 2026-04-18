@@ -191,4 +191,4 @@ reset → move pointer (danger)
 revert → undo safely  
 rebase → rewrite history  
 merge → combine history  
-reflog 
+reflog -  for seeing the moves
