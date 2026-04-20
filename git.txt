@@ -40,6 +40,11 @@ git push origin main --force
 git switch -c master origin/master
 
 
+
+
+
+
+
 git push origin --delete branch_name
 
 
