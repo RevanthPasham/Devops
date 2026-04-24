@@ -114,6 +114,7 @@ Understand why weird logic exists
 🧱 21. Squash Commits (Clean Your Mess)
 git rebase -i HEAD~3
 
+
 Then change:
 
 pick → squash
