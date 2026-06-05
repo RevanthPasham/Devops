@@ -193,3 +193,9 @@ revert → undo safely
 rebase → rewrite history  
 merge → combine history  
 reflog -  for seeing the moves
+
+
+
+
+git log origin/main..HEAD --oneline
+git log origin/extention..HEAD --oneline
