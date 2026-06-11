@@ -268,3 +268,66 @@ Always run:
 ```bash
 git reflog
 ```
+# 17. History & Tracking Commands
+
+## git log
+
+| Action | Command | Meaning | When To Use |
+|----------|----------|----------|----------|
+| Full History | `git log` | Show complete commit history | Check old commits |
+| One Line History | `git log --oneline` | Compact commit history | Daily use |
+| Graph View | `git log --graph --oneline --all` | Visual branch graph | Understand merges |
+| Last 5 Commits | `git log -5` | Show latest 5 commits | Quick review |
+| Commit Details | `git show HASH` | Show commit changes | Inspect commit |
+| Current Branch Only | `git log HEAD` | Current branch history | Branch review |
+
+---
+
+## Compare Local Branch With Remote
+
+| Action | Command | Meaning | When To Use |
+|----------|----------|----------|----------|
+| Commits not pushed yet | `git log origin/main..HEAD --oneline` | Local commits ahead of remote | Before push |
+| Commits on remote not local | `git log HEAD..origin/main --oneline` | Remote commits missing locally | Before pull |
+| Compare branches | `git log main..feature --oneline` | Commits in feature not in main | Branch comparison |
+| Compare both ways | `git log --left-right main...feature --oneline` | Difference between branches | Merge planning |
+
+---
+
+# 18. Difference Commands
+
+## git diff
+
+| Action | Command | Meaning |
+|----------|----------|----------|
+| Working vs Staged | `git diff` | Show uncommitted changes |
+| Staged vs Last Commit | `git diff --staged` | Show staged changes |
+| Compare Branches | `git diff main feature` | Compare branches |
+| Compare Commits | `git diff HASH1 HASH2` | Compare commits |
+| Compare File | `git diff file.txt` | Compare file changes |
+
+---
+
+# 19. Fetch Commands
+
+## git fetch
+
+| Action | Command | Meaning | Safe? |
+|----------|----------|----------|----------|
+| Fetch Updates | `git fetch` | Download changes only | ✅ Safe |
+| Fetch All Remotes | `git fetch --all` | Download all updates | ✅ Safe |
+| Fetch Prune | `git fetch --prune` | Remove deleted remote refs | ✅ Safe |
+| Fetch Specific Branch | `git fetch origin main` | Update one branch | ✅ Safe |
+
+### What Fetch Does
+
+Remote:
+A → B → C → D
+
+Local:
+A → B → C
+
+After:
+
+```bash
+git fetch
