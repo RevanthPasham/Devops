@@ -268,5 +268,3 @@ Always run:
 ```bash
 git reflog
 ```
-
-because reflog is usually your last chance to recover lost work.
