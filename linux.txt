@@ -87,7 +87,7 @@ nmap -v domain_name
 
 
 
-
+ssh -i "linux.pem" ubuntu@ec2-52-53-166-42.us-west-1.compute.amazonaws.com
 
 
 
@@ -95,3 +95,13 @@ nmap -v domain_name
 other comommands
 fg %1
 ps -ef | grep vim
+
+
+
+
+
+physical volumes 
+
+lsblk 
+lvm
+pvcreate
