@@ -45,8 +45,6 @@ sudo chgrp  groupname  filename
 sudo apt install zip
 
 zip -r name foldername/
-<<<<<<< HEAD
-=======
 
 
 scp -i "C:\Users\rahul\Downloads\linux.pem" README_SEO.md ubuntu@ec2-54-183-198-70.us-west-1.compute.amazonaws.com:/home/ubuntu/
@@ -104,7 +102,20 @@ ps -ef | grep vim
 
 physical volumes 
 
-lsblk    -to list blocks   
+lsblk    -to list blocks  
 lvm
 pvcreate
->>>>>>> 5d053f751a8d298863ff9322f5232e445af236dd
+
+
+
+
+
+
+steps to crete logical volumes in Linux
+
+check blocks             lsblk 
+enter into root          sudo su 
+run                       lev 
+crete physical volumes     pvcreate /dev/nvme1n1 /dev/nvme2n1  /dev/nvme3n1
+cretete volume group       vgcreate  any_name  volumes eg ;/dev/nvme1n1 /dev/nvme2n1 
+ extend group               vgextend tws_vg /dev/nvme2n1
