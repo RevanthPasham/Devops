@@ -119,3 +119,11 @@ run                       lev
 crete physical volumes     pvcreate /dev/nvme1n1 /dev/nvme2n1  /dev/nvme3n1
 cretete volume group       vgcreate  any_name  volumes eg ;/dev/nvme1n1 /dev/nvme2n1 
  extend group               vgextend tws_vg /dev/nvme2n1
+
+crete logical volumes      lvcrete -L 10GB -n anyname    volume_group_name
+
+exit
+
+crete folder               mkdir folder_name
+format                   mkfs.ext4 /dev/tws_vg/tws_lv
+mount                     mount /dev/tws_vg/tws_lv  mnt/tws_lv_mnt
