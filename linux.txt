@@ -45,3 +45,66 @@ sudo chgrp  groupname  filename
 sudo apt install zip
 
 zip -r name foldername/
+<<<<<<< HEAD
+=======
+
+
+scp -i "C:\Users\rahul\Downloads\linux.pem" README_SEO.md ubuntu@ec2-54-183-198-70.us-west-1.compute.amazonaws.com:/home/ubuntu/
+ scp -i "C:\Users\rahul\Downloads\linux.pem" -r  ubuntu@ec2-52-53-166-42.us-west-1.compute.amazonaws.com:\home\ubuntu\raj .
+rsync -e  "C:\Users\rahul\Downloads\linux.pem"  -avz  path 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+network commands
+
+ping  domain_name
+netstat 
+traceroute  domain_name
+tracepath domain_name
+mtr  
+
+whois domain_name
+nslookup domain_name
+arp
+dig
+netcat
+telnet
+ifplugstatus
+watch any_commmand_name
+watch -n time_ top
+nmap -v domain_name
+
+
+
+
+
+ssh -i "linux.pem" ubuntu@ec2-52-53-166-42.us-west-1.compute.amazonaws.com
+
+
+
+
+other comommands
+fg %1
+ps -ef | grep vim
+
+
+
+
+
+physical volumes 
+
+lsblk    -to list blocks   
+lvm
+pvcreate
+>>>>>>> 5d053f751a8d298863ff9322f5232e445af236dd
