@@ -1,0 +1,47 @@
+df
+df -h
+du .
+ps
+top
+cat nohup.out
+nohup df -h
+head -n numbr_of_lines nohup.out
+
+
+
+
+
+
+users 
+sudo useradd -m name 
+sudo groupadd name 
+sudo passwd  name 
+
+su name 
+
+cat /etc/group
+
+sudo gpasswd  -a  user_name Group_name 
+
+
+
+
+
+chmod 700 name
+chmod u=rwx, g=rwx ,o=rwx  name
+chmod a-w  name 
+chmod a+w  name 
+
+
+
+
+
+
+
+sudo chown username  filename   =to change owner of file 
+sudo chgrp  groupname  filename
+
+
+sudo apt install zip
+
+zip -r name foldername/
