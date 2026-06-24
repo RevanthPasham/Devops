@@ -102,6 +102,6 @@ ps -ef | grep vim
 
 physical volumes 
 
-lsblk 
+lsblk    -to list blocks   
 lvm
 pvcreate
