@@ -127,3 +127,12 @@ exit
 crete folder               mkdir folder_name
 format                   mkfs.ext4 /dev/tws_vg/tws_lv
 mount                     mount /dev/tws_vg/tws_lv  mnt/tws_lv_mnt
+
+extend logical_volumes    lvextend -L +5G -n /dev/tws_vg/tws_lv
+
+
+
+MOUNT Directly Physical BLocks
+
+ format                    mkfs -t ex4 /dev/disk_name
+
