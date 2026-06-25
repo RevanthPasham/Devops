@@ -136,3 +136,4 @@ MOUNT Directly Physical BLocks
 
  format                    mkfs -t ex4 /dev/disk_name
 
+mount                       mount /dev/disk_name_  folder path
