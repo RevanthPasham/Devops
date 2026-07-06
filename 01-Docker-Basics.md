@@ -1,513 +1,250 @@
-# 🐳 Docker Complete Handbook
 
-> A comprehensive Docker guide for beginners to advanced developers. This handbook covers Docker architecture, images, containers, Dockerfiles, networking, volumes, Docker Compose, production deployment, AWS integration, Kubernetes basics, CI/CD, debugging, performance optimization, security, and real-world projects.
-
----
-
-# 📖 Table of Contents
-
-## Part 1 — Docker Fundamentals
-
-### 1. What is Docker?
-- Virtual Machine vs Docker
-- Containers
-- Images
-- Layers
-- Registry
-- Docker Engine
-- Docker Desktop
-- Docker Architecture
-
----
-
-### 2. Installation
-- Windows Installation
-- Linux Installation
-- macOS Installation
-- Verify Docker Installation
-- Common Installation Errors
-
----
-
-### 3. Docker Architecture
-- Docker CLI
-- Docker Daemon
-- Docker REST API
-- Docker Engine
-- Container Runtime
-- containerd
-- runc
-- OCI (Open Container Initiative)
-
----
-
-## Part 2 — Docker Images
-
-### 4. Images
-- Introduction to Images
-- Docker Hub
-- Pulling Images
-- Listing Images
-- Inspecting Images
-- Removing Images
-- Saving Images
-- Loading Images
-- Image Layers
-- Image History
-
----
-
-## Part 3 — Containers
-
-### 5. Containers
-- docker run
-- docker ps
-- docker start
-- docker stop
-- docker restart
-- docker pause
-- docker unpause
-- docker exec
-- docker logs
-- docker inspect
-- docker stats
-- docker top
-- docker rename
-- docker kill
-- docker rm
-- Container Life Cycle
-
----
-
-## Part 4 — Dockerfile
-
-### 6. Dockerfile
-
-### Instructions
-
-- FROM
-- RUN
-- COPY
-- ADD
-- WORKDIR
-- ENV
-- ARG
-- LABEL
-- USER
-- CMD
-- ENTRYPOINT
-- HEALTHCHECK
-- SHELL
-- EXPOSE
-- VOLUME
-- STOPSIGNAL
-- ONBUILD
-
-### Advanced Topics
-
-- Multi-stage Builds
-- Layer Caching
-- Best Practices
-- Dockerfile Optimization
-
----
-
-## Part 5 — Building Images
-
-### 7. Docker Build
-
-- docker build
-- Build Context
-- Build Cache
-- Cache Busting
-- BuildKit
-- Multi-platform Builds
-- .dockerignore
-
----
-
-## Part 6 — Storage
-
-### 8. Volumes
-
-- Named Volumes
-- Anonymous Volumes
-- Bind Mounts
-- tmpfs Mounts
-- Volume Backup
-- Volume Restore
-
----
-
-## Part 7 — Networking
-
-### 9. Docker Networks
-
-- Bridge Network
-- Host Network
-- None Network
-- Overlay Network
-- Macvlan Network
-- Custom Networks
-- Embedded DNS
-- Network Inspection
-
----
-
-## Part 8 — Environment Variables
-
-### 10. Environment Variables
-
-- -e
-- --env
-- --env-file
-- ARG vs ENV
-- Secrets
-- Best Practices
-
----
-
-## Part 9 — Docker Compose
-
-### 11. Docker Compose
-
-- compose.yaml
-- Services
-- Networks
-- Volumes
-- Depends On
-- Restart Policies
-- Profiles
-- Override Files
-- Compose Commands
-- Production Compose
-
----
-
-## Part 10 — Docker Hub
-
-### 12. Docker Hub
-
-- Login
-- Logout
-- Push
-- Pull
-- Tags
-- Private Repositories
-- Automated Builds
-
----
-
-## Part 11 — Logging
-
-### 13. Docker Logs
-
-- docker logs
-- Logging Drivers
-- Log Rotation
-- Production Logging
-
----
-
-## Part 12 — Inspection
-
-### 14. Docker Inspect
-
-- docker inspect
-- docker history
-- docker diff
-- docker events
-
----
-
-## Part 13 — Cleanup
-
-### 15. Docker System Cleanup
-
-- docker system prune
-- docker image prune
-- docker container prune
-- docker volume prune
-- docker network prune
-- Removing Dangling Images
-
----
-
-## Part 14 — Debugging
-
-### 16. Debugging Containers
-
-- Common Errors
-- Container Crashes
-- Logs
-- Shell Access
-- Health Checks
-- Troubleshooting Checklist
-
----
-
-## Part 15 — Security
-
-### 17. Docker Security
-
-- Non-root Containers
-- Read-only File System
-- Secrets
-- Capabilities
-- Image Scanning
-- Best Practices
-
----
-
-## Part 16 — Performance
-
-### 18. Docker Performance
-
-- Image Optimization
-- Build Cache
-- Multi-stage Builds
-- Resource Limits
-- CPU & Memory
-- Startup Optimization
-
----
-
-## Part 17 — Best Practices
-
-### 19. Best Practices
-
-- Dockerfile Best Practices
-- Image Optimization
-- Security Best Practices
-- Networking Best Practices
-- Compose Best Practices
-- Production Checklist
-
----
-
-## Part 18 — Real Production Example
-
-### 20. Production Project
-
-- React
-- Node.js
-- TypeScript
-- PostgreSQL
-- Redis
-- Nginx
-- Docker Compose
-- Production Deployment
-
----
-
-## Part 19 — Docker with Technologies
-
-### 21. Docker + Node.js
-
-- Dockerizing Node
-- npm
-- pnpm
-- Yarn
-- Development
-- Production
-
----
-
-### 22. Docker + TypeScript
-
-- Build Process
-- Dist Folder
-- Multi-stage Build
-- Production Image
-
----
-
-### 23. Docker + PostgreSQL
-
-- Database Container
-- Persistent Storage
-- Initialization Scripts
-- Backups
-
----
-
-### 24. Docker + Redis
-
-- Redis Container
-- Persistence
-- Configuration
-- Networking
-
----
-
-### 25. Docker Compose Production
-
-- Multi-service Applications
-- Environment Files
-- Scaling
-- Reverse Proxy
-- Production Deployment
-
----
-
-## Part 20 — Container Orchestration
-
-### 26. Docker Swarm
-
-- Swarm Mode
-- Managers
-- Workers
-- Services
-- Scaling
-
----
-
-### 27. Kubernetes Introduction
-
-- Pods
-- Deployments
-- Services
-- ReplicaSets
-- ConfigMaps
-- Secrets
-- Volumes
-
----
-
-## Part 21 — AWS Integration
-
-### 28. Amazon ECS
-
-- ECS
-- Task Definitions
-- Services
-- Clusters
-- Fargate
-- EC2 Launch Type
-
----
-
-### 29. Amazon ECR
-
-- Private Registry
-- Authentication
-- Push Images
-- Pull Images
-- Image Versioning
-
----
-
-## Part 22 — CI/CD
-
-### 30. CI/CD with Docker
-
-- GitHub Actions
-- GitLab CI
-- Jenkins
-- Build Pipelines
-- Docker Build
-- Docker Push
-- Deployment Automation
-
----
-
-# 📚 Appendix
-
-## Docker Commands Reference
-
-- docker run
-- docker build
-- docker images
-- docker ps
-- docker exec
-- docker logs
-- docker inspect
-- docker pull
-- docker push
-- docker login
-- docker logout
-- docker tag
-- docker rm
-- docker rmi
-- docker volume
-- docker network
-- docker compose
-- docker system
-- docker builder
-- docker history
-- docker save
-- docker load
-- docker export
-- docker import
-
----
-
-## Docker Cheat Sheet
-
-- Frequently Used Commands
-- Common Flags
-- Shortcuts
-- Best Practices
-
----
-
-## Interview Questions
-
-### Beginner
-
-- What is Docker?
-- Image vs Container?
-- Dockerfile vs Image?
-- Volume vs Bind Mount?
-
-### Intermediate
-
-- CMD vs ENTRYPOINT?
-- COPY vs ADD?
-- ARG vs ENV?
-- Multi-stage Builds?
-
-### Advanced
-
-- OCI
-- containerd
-- BuildKit
-- OverlayFS
-- Docker Networking
-- Production Optimization
-
----
-
-## Common Errors
-
-- Port Already Allocated
-- Container Exited Immediately
-- Permission Denied
-- No Space Left on Device
-- Image Not Found
-- Cannot Connect to Docker Daemon
-- Build Cache Issues
-
----
-
-## Glossary
-
-- Container
-- Image
-- Layer
-- Registry
-- Docker Hub
-- Volume
-- Network
-- Build Context
-- OCI
-- containerd
-- runc
-- Namespace
-- cgroups
-
----
-
-# 🚀 Goal
-
-By completing this handbook, you will understand Docker from the fundamentals to production deployment, including modern development workflows, cloud deployment, AWS services, orchestration basics, security, debugging, and performance optimization.
+Docker
+│
+├── Images            (Blueprints)
+├── Containers        (Running Applications)
+├── Volumes           (Persistent Storage)
+├── Networks          (Communication)
+├── Docker Compose    (Multiple Containers)
+├── Build Cache       (Build Optimization)
+└── System            (Cleanup & Information)
+
+
+Docker
+│
+├──────────────────────────────────────────────
+├── Images
+│
+│   List Images
+│   ├── docker images
+│   ├── docker image ls                                   same outputs both
+│
+│   Build Image
+│   ├── docker build -t ts-server:latest .                built images with tag,reposirtoy_name ;version current_folder 
+│   ├── docker build -t ts-server:v1 .
+│   ├── docker build --no-cache -t ts-server .             it does not uses any cache build freshly 
+│   ├── docker build -f Dockerfile.dev -t ts-server .       
+     |---docker build -f Dockerfile.prod -t backend-prod .
+       cretes multimer docker files for production or etc required separet dockr filees like this
+         filename 
+                       FROM node:22-alpine
+ 
+                       WORKDIR /development
+
+                      COPY package*.json ./
+
+                      RUN npm install
+
+                     COPY . .
+
+                    EXPOSE 3000
+
+                    CMD ["npm","run","dev"]
+
+
+
+ 
+     docker build -q -t ts-server .                         only print image ids rather then all logs during building
+│
+│   Download Image
+│   ├── docker pull nginx
+│   ├── docker pull node:22-alpine
+│
+│   Tag Image
+│   ├── docker tag ts-server:latest ts-server:v1
+│   ├── docker tag ts-server:latest backend:production
+│
+│   Upload Image
+│   ├── docker push username/ts-server:v1
+│
+│   Inspect Image
+│   ├── docker image inspect ts-server
+│
+│   Image History
+│   ├── docker history ts-server
+│
+│   Save Image
+│   ├── docker save -o ts-server.tar ts-server
+│
+│   Load Image
+│   ├── docker load -i ts-server.tar
+│
+│   Remove Image
+│   ├── docker rmi ts-server
+│   ├── docker image rm ts-server
+│
+│   Remove Dangling Images
+│   ├── docker image prune
+│
+│
+├──────────────────────────────────────────────
+├── Containers
+│
+│   Create & Start
+│   ├── docker run ts-server                                       run the container and attach to terminal to show logs                        
+│   ├── docker run -d ts-server                                    run the container and only show container id in terminal
+│   ├── docker run -it ubuntu bash
+│   ├── docker run --name backend ts-server
+│   ├── docker run -p 3000:3000 ts-server
+│   ├── docker run -d --name backend -p 3000:3000 ts-server
+│   ├── docker run -e PORT=5000 ts-server
+│   ├── docker run -v mydata:/app/data ts-server
+│
+│   List Containers
+│   ├── docker ps
+│   ├── docker ps -a
+│
+│   Start Container
+│   ├── docker start backend            starts an existing stoped continer
+│   ├── docker start <container-id>     
+│
+│   Stop Container 
+│   ├── docker stop backend               Please finish your work and shut down
+│   ├── docker stop <container-id> 
+│
+│   Restart Container
+│   ├── docker restart backend            stops and start an existing container
+│
+│   Kill Container
+│   ├── docker kill backend                Forcefully stop a running container.
+│
+│   Logs
+│   ├── docker logs backend
+│   ├── docker logs -f backend
+│   ├── docker logs --tail 50 backend
+│
+│   Execute Command
+│   ├── docker exec -it backend sh
+│   ├── docker exec -it backend bash
+│   ├── docker exec backend ls
+│
+│   Inspect Container
+│   ├── docker inspect backend
+│
+│   Rename Container
+│   ├── docker rename backend api-server
+│
+│   Container Processes
+│   ├── docker top backend
+│
+│   Resource Usage
+│   ├── docker stats
+│   ├── docker stats backend
+│
+│   Attach Terminal
+│   ├── docker attach backend
+│
+│   Copy Files
+│   ├── docker cp app.js backend:/app
+│   ├── docker cp backend:/app/log.txt .
+│
+│   Remove Container
+│   ├── docker rm backend
+│   ├── docker rm -f backend
+│
+│   Remove Stopped Containers
+│   ├── docker container prune
+│
+│
+├──────────────────────────────────────────────
+├── Volumes
+│
+│   Create Volume
+│   ├── docker volume create mydata
+│
+│   List Volumes
+│   ├── docker volume ls
+│
+│   Inspect Volume
+│   ├── docker volume inspect mydata
+│
+│   Remove Volume
+│   ├── docker volume rm mydata
+│
+│   Remove Unused Volumes
+│   ├── docker volume prune
+│
+│
+├──────────────────────────────────────────────
+├── Networks
+│
+│   Create Network
+│   ├── docker network create mynetwork
+│
+│   List Networks
+│   ├── docker network ls
+│
+│   Inspect Network
+│   ├── docker network inspect mynetwork
+│
+│   Connect Container
+│   ├── docker network connect mynetwork backend
+│
+│   Disconnect Container
+│   ├── docker network disconnect mynetwork backend
+│
+│   Remove Network
+│   ├── docker network rm mynetwork
+│
+│   Remove Unused Networks
+│   ├── docker network prune
+│
+│
+├──────────────────────────────────────────────
+├── Docker Compose
+│
+│   Start Services
+│   ├── docker compose up
+│   ├── docker compose up -d
+│
+│   Stop Services
+│   ├── docker compose down
+│
+│   Restart
+│   ├── docker compose restart
+│
+│   Logs
+│   ├── docker compose logs
+│   ├── docker compose logs -f
+│
+│   Execute Command
+│   ├── docker compose exec web sh
+│
+│   Build
+│   ├── docker compose build
+│
+│
+├──────────────────────────────────────────────
+├── Build Cache
+│
+│   View Cache
+│   ├── docker builder ls
+│
+│   Remove Cache
+│   ├── docker builder prune
+│
+│
+├──────────────────────────────────────────────
+└── System
+    │
+    Information
+    ├── docker version
+    ├── docker info
+    ├── docker system df
+
+    Cleanup
+    ├── docker system prune
+    ├── docker system prune -a
+
+    Context
+    ├── docker context ls
+    ├── docker context use default
+
+
+
+
+
+
+
+used commands 
+docker run --rm -it docker_practice sh
