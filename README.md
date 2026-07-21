@@ -215,10 +215,9 @@ Shipment Details
 Accept Shipment
 
 ---
-
 # My Activities
 
-Contains only the logged-in user's data.
+Contains only the logged-in user's own data.
 
 ```
 My Activities
@@ -230,7 +229,7 @@ My Activities
 
 ---
 
-## Shipments
+# Shipments
 
 ```
 Shipments
@@ -255,7 +254,7 @@ Published
 
 ↓
 
-Requested
+Matched
 
 ↓
 
@@ -282,93 +281,141 @@ Shipment Details
 
 ---
 
-## Add Shipment
+# Add Shipment
 
-Three-step process
+The shipment posting process is intentionally simple.
+
+The platform is a marketplace that connects senders with travellers.
+
+Users only need to provide the minimum required information.
+
+```
+Add Shipment
+
+│
+
+├── Shipment Name *
+
+├── Pickup Location *
+
+├── Destination *
+
+├── Parcel Type *
+
+├── Description (Optional)
+
+└── Parcel Image (Optional)
+```
+
+Example
+
+```
+Shipment Name
+Laptop Charger
+
+Pickup
+Macherla
+
+Destination
+Hyderabad
+
+Parcel Type
+Electronics
+
+Description
+Small laptop charger with adapter.
+
+Photo
+(Optional)
+```
+
+Once submitted
+
+```
+Post Shipment
+
+↓
+
+Visible in Discover
+
+↓
+
+Traveller Finds Shipment
+
+↓
+
+Traveller Sends Request
+
+↓
+
+Sender Accepts Request
+
+↓
+
+Chat Opens
+
+↓
+
+Pickup
+
+↓
+
+Delivery
+
+↓
+
+Completed
+
+↓
+
+Rate Each Other
+```
 
 ---
 
-### Step 1
+## Shipment Details
 
-Shipment Details
+Displays
 
 ```
 Shipment Name
 
-Total Weight
-
-Shipment Note
-
-Items
-
-↓
-
-Item Name
-
-Parcel / Document
-
-Length
-
-Width
-
-Height
-
-Item Note
-
-Upload Images
-```
-
-Users can add multiple items.
-
----
-
-### Step 2
-
-Shipment Information
-
-```
 Pickup Location
 
 Destination
 
-Maximum Delivery Date
+Parcel Type
 
-Recipient Name
+Description
 
-Recipient Mobile Number
+Parcel Image
 
-Reward Amount
+Current Status
 
-Insurance (Optional)
+Posted Date
 ```
 
 ---
 
-### Step 3
+## Important Notes
 
-Shipment Summary
+The following information is **NOT collected while posting a shipment**.
 
-Shows
+- Reward Amount
+- Recipient Name
+- Recipient Phone Number
+- Parcel Dimensions
+- Parcel Weight
+- Insurance
+- Delivery Instructions
 
-```
-Route
+These details can be discussed after a traveller accepts the shipment and the private chat is opened.
 
-Recipient
-
-Items
-
-Reward
-
-Service Fee
-
-Total
-
-Post Shipment
-```
+This keeps the posting process fast and encourages more users to create shipments.
 
 ---
 
-## Trips
+# Trips
 
 ```
 Trips
@@ -412,7 +459,9 @@ Trip Details
 
 ---
 
-## Add Trip
+# Add Trip
+
+Before posting a trip, the user must complete identity verification.
 
 ```
 Trip Information
@@ -447,7 +496,7 @@ Can Carry
 
 ↓
 
-Note
+Notes (Optional)
 
 ↓
 
@@ -458,12 +507,97 @@ Transportation Types
 
 - Airplane
 - Car
-- Train
 - Bus
-- Truck
+- Train
 - Bike
+- Truck
 
 ---
+
+# Authentication Requirement
+
+Users can browse the application after registering with their phone number.
+
+However, the following actions require identity verification:
+
+- Post Trip
+- Post Shipment
+- Send Request
+- Accept Request
+- Chat
+
+Verification includes:
+
+- Phone Number (OTP)
+- Government ID
+- Selfie
+- Address Proof
+
+Only administrators can access uploaded documents.
+
+Public profiles display only:
+
+```
+✓ Verified
+
+or
+
+Pending Verification
+```
+
+---
+
+# Home Address Policy
+
+During registration, every user must provide their permanent home address.
+
+```
+Country
+
+↓
+
+State
+
+↓
+
+District
+
+↓
+
+City / Village
+
+↓
+
+House Address
+```
+
+After the account is verified, the home address becomes locked.
+
+Users cannot edit it themselves.
+
+If a user needs to update their address:
+
+```
+Request Address Change
+
+↓
+
+Provide Reason
+
+↓
+
+Admin Review
+
+↓
+
+Approved
+
+↓
+
+Address Updated
+```
+
+All address changes are recorded for administrative purposes.
 
 # Account
 
