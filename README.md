@@ -2,6 +2,7 @@
 
 This project demonstrates how to build a production-style AWS network architecture where:
 
+
 - A Node.js backend runs on an EC2 instance.
 - EC2 is accessible from the internet.
 - PostgreSQL runs on AWS RDS.
